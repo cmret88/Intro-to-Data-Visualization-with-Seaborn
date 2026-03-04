@@ -73,7 +73,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 df = pd.read_csv('masculinity.csv')
-sns.countplos(x='how_masculine',
+sns.countplot(x='how_masculine',
               data=df)
 plt.show()
 
@@ -82,3 +82,19 @@ plt.show()
 # the 'masculinity' DataFrame shown here is tidy because each row is a survey response with one answer to each survey question in each column
 # an untidy DataFrame, each row doesn't contain the same info
 # doesn't work well with Seaborn
+
+# Import Matplotlib, pandas, and Seaborn
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Create a DataFrame from csv file
+df = pd.read_csv(csv_filepath)
+
+# Create a count plot with "Spiders" on the x-axis
+sns.countplot(x='Spiders', data=df)
+
+# Display the plot
+plt.show()
+
+#### Adding a third variable with hue ####
