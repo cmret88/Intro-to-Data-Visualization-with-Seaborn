@@ -23,7 +23,43 @@ plt.show()
 # shows that yes, taller people tend to weigh more
 
 # Example 2: Create a count plot
+# what is the breakdown of observations?
 # count plots take in a categorical list and return bars that represent the # of list entries per category
 import seaborn as sns
 import matplotlib.pyplot as plt
 gender = ['Female', 'Female', 'Female', 'Female', 'Male', 'Male', 'Male', 'Male', 'Male', 'Male']
+sns.countplot(x=gender)
+plt.show()
+
+# Import Matplotlib and Seaborn
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Change this scatter plot to have percent literate on the y-axis
+sns.scatterplot(x=gdp, y=phones)
+
+# Show plot
+plt.show()
+
+# Import Matplotlib and Seaborn
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Change this scatter plot to have percent literate on the y-axis
+sns.scatterplot(x=gdp, y=percent_literate)
+
+# Show plot
+plt.show()
+
+# Import Matplotlib and Seaborn
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+
+# Create count plot with region on the y-axis
+sns.countplot(y=region)
+
+# Show plot
+plt.show()
+
+#### Using pandas with Seaborn ####
