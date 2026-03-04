@@ -98,3 +98,53 @@ sns.countplot(x='Spiders', data=df)
 plt.show()
 
 #### Adding a third variable with hue ####
+# loading the tips dataset
+# the dataset contains one row for each table served at a restaurant and has info about bill amount, # of ppl at table, etc
+import pandas as pd
+import seaborn as sns
+tips = sns.load_dataset('tips')
+
+# A basic scatter plot
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.scatterplot(x='total_bill',
+                y='tip',
+                data=tips)
+plt.show()
+# we see that largers bills are associated with larger tips
+# what if we wanted to see which of the data points are smokers vs nonsmokers?
+# seaborn makes it super easy
+# we add 'hue' argument:
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.scatterplot(x='total_bill',
+                y='tip',
+                data=tips,
+                hue='smoker')
+plt.show()
+# this adds a legend to the plot automatically
+# Hue also allows you to assert more control over the ordering and coloring of each value
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.scatterplot(x='total_bill',
+                y='tip',
+                data=tips,
+                hue='smoker',
+                hue_order=['Yes','No'])
+plt.show()
+# Yes is listed before No in the legend
+
+# You can also choose the colors using the palette parameter
+# this requires using a dictionary
+# when we set hue equal to smoker and the palette parameter equal to this dictionary, we have a scatterplot where smokers are repped w/ black dots and nonsmokers w/ red dots
+# this only works for a few colors available in matplotlib
+import matplotlib.pyplot as plt
+import seaborn as sns
+hue_colors = {'Yes': 'black',
+              'No' : 'red'}
+sns.scatterplot(x='total_bill',
+                y='tip',
+                data=tips
+                hue='smoker'
+                palette=hue_colors)
+plt.show()
