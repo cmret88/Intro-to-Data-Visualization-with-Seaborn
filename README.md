@@ -30,36 +30,55 @@ import matplotlib.pyplot as plt
 gender = ['Female', 'Female', 'Female', 'Female', 'Male', 'Male', 'Male', 'Male', 'Male', 'Male']
 sns.countplot(x=gender)
 plt.show()
-
 # Import Matplotlib and Seaborn
 import matplotlib.pyplot as plt
 import seaborn as sns
-
 # Change this scatter plot to have percent literate on the y-axis
 sns.scatterplot(x=gdp, y=phones)
-
 # Show plot
 plt.show()
 
 # Import Matplotlib and Seaborn
 import matplotlib.pyplot as plt
 import seaborn as sns
-
 # Change this scatter plot to have percent literate on the y-axis
 sns.scatterplot(x=gdp, y=percent_literate)
-
 # Show plot
 plt.show()
-
 # Import Matplotlib and Seaborn
 import matplotlib.pyplot as plt
 import seaborn as sns
-
-
 # Create count plot with region on the y-axis
 sns.countplot(y=region)
-
 # Show plot
 plt.show()
 
 #### Using pandas with Seaborn ####
+# its an advantage that pandas works well with seaborn
+# what is pandas?
+# library for data analysis
+# easily read datasets from csv, txt, and other types of files
+# datasets take the form of DataFrame objects
+
+# Working with DataFrames
+# this dataset contains the results of a survey of adult men
+# contains four columns: 'participant_id', 'age', 'how_masculine', 'how_important'
+import pandas as pd
+df = pd.read_csv('masculinity.csv')
+df.head()
+
+# Using Dataframes with countplot()
+# this shows us that the most common response to the question to "how masculine do you feel" is "somewhat" and "very"
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+df = pd.read_csv('masculinity.csv')
+sns.countplos(x='how_masculine',
+              data=df)
+plt.show()
+
+# IMPORTANT TO NOTE THAT SEABORN WORKS GREAT WITH PANDAS, BUT ONLY IF THE DATA IS 'TIDY'
+# 'Tidy' means that each observation has its own row and each variable has its own column
+# the 'masculinity' DataFrame shown here is tidy because each row is a survey response with one answer to each survey question in each column
+# an untidy DataFrame, each row doesn't contain the same info
+# doesn't work well with Seaborn
