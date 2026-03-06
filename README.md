@@ -243,6 +243,35 @@ sns.relplot(x="absences", y="G3",
 # Show plot
 plt.show()
 
+# Create a scatter plot of G1 vs. G3
+import seaborn as sns
+import matplotlib.pyplot as plt
+sns.relplot(x='G1',
+            y='G3',
+            kind='scatter',
+            data=student_data)
 
+# Show plot
+plt.show()
 
+# Adjust further to add subplots based on family support
+sns.relplot(x="G1", y="G3", 
+            data=student_data,
+            kind="scatter", 
+            col="schoolsup",
+            col_order=["yes", "no"])
 
+# Show plot
+plt.show()
+
+# Adjust further to add subplots based on family support
+sns.relplot(x="G1", y="G3", 
+            data=student_data,
+            kind="scatter", 
+            col="schoolsup",
+            col_order=['yes','no'],
+            row='famsup',
+            row_order=["yes", "no"])
+
+# Show plot
+plt.show()
