@@ -283,3 +283,15 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 sns.relplot(x='total_bill', y='tip', data=tips, kind='scatter', size='size')
 plt.show()
+
+# Point size and hue
+import seaborn as sns
+import matplotlib.pyplot as plt
+sns.relplot(x='total_bill', y='tip', data=tips, kind='scatter', size='size', hue='size')
+plt.show()
+
+# Subgroups with point style
+import seaborn as sns
+import matplotlib.pyplot as plt
+sns.relplot(x='total_bill', y='tip', data=tips, kind='scatter', hue='smoker', style='smoker')
+plt.show()
