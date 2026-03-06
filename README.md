@@ -182,8 +182,60 @@ plt.show()
 # # of school absences vs. final grade
 # GDP vs. % literate
 # in this lesson, we will create a separate plot per subgroup
-
 # Introducing relplot()
 # create relational plots: scatter plots or line plots
 # Why relplot() instead of scatterplot()?
 # relplot() lets you create subplots in a single figure
+
+# scatterplot() vs. relplot()
+# using scatterplot()
+import seaborn as sns
+import matplotlib.pyplot as plt
+sns.scatterplot(x='total_bill', y='tip', data=tips)
+plt.show()
+
+# using relplot()
+# 'kind' parameter specifies what kind of relational plot to use
+import seaborn as sns
+import matplotlib.pyplot as plt
+sns.relplot(x='total_bill', y='tip', data=tips, kind='scatter')
+plt.show()
+
+# Subplots in columns
+# this shows two plots side by side
+import seaborn as sns
+import matplotlib.pyplot as plt
+sns.relplot(x='total_bill', y='tip', data=tips, kind='scatter', col='smoker')
+plt.show()
+
+# Subplots in rows
+import seaborn as sns
+import matplotlib.pyplot as plt
+sns.relplot(x='total_bill', y='tip', data=tips, kind='scatter', row='smoker')
+plt.show()
+
+# Subplots in rows and columns
+# this shows four plots
+import seaborn as sns
+import matplotlib.pyplot as plt
+sns.relplot(x='total_bill', y='tip', data=tips, kind='scatter', col='smoker', row='time')
+plt.show()
+
+# Wrapping columns
+import seaborn as sns
+import matplotlib.pyplot as plt
+sns.relplot(x='total_bill', y='tip', data=tips, kind='scatter', col='day', col_wrap=2)
+plt.show()
+
+# Ordering columns
+import seaborn as sns
+import matplotlib.pyplot as plt
+sns.relplot(x='total_bill', y='tip', data=tips, kind='scatter', col='day', col_wrap=2,
+            col_order=['Thur','Fri','Sat','Sun'])
+plt.show()
+
+
+
+
+
+
