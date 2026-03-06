@@ -295,3 +295,14 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 sns.relplot(x='total_bill', y='tip', data=tips, kind='scatter', hue='smoker', style='smoker')
 plt.show()
+
+# Changing point transparency
+import seaborn as sns
+import matplotlib.pyplot as plt
+# set alpha to be between 0 and 1
+sns.relplot(x='total_bill',
+            y='tip',
+            data=tips,
+            kind='scatter',
+            alpha=0.4)
+plt.show()
