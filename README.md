@@ -173,3 +173,17 @@ sns.countplot(x='school', data=student_data, hue='location', palette=palette_col
 
 # Display plot
 plt.show()
+
+#### Introduction to relational plots and subplots ####
+# many questions in data science are centered around describing the relationship between two quantitative variables
+# these are "relational plots" in seaborn
+# examples of relational plots:
+# height vs. weight
+# # of school absences vs. final grade
+# GDP vs. % literate
+# in this lesson, we will create a separate plot per subgroup
+
+# Introducing relplot()
+# create relational plots: scatter plots or line plots
+# Why relplot() instead of scatterplot()?
+# relplot() lets you create subplots in a single figure
