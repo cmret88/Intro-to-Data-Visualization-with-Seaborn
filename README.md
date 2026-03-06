@@ -275,3 +275,11 @@ sns.relplot(x="G1", y="G3",
 
 # Show plot
 plt.show()
+
+#### Customizing scatter plots ####
+# customizing point size
+# setting the 'size' parameter equal to the variable name 'size' from our dataset
+import seaborn as sns
+import matplotlib.pyplot as plt
+sns.relplot(x='total_bill', y='tip', data=tips, kind='scatter', size='size')
+plt.show()
