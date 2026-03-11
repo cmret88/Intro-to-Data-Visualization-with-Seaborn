@@ -329,3 +329,71 @@ sns.relplot(x='acceleration', y='mpg', data=mpg, kind='scatter', style='origin',
 
 # Show plot
 plt.show()
+
+#### Introduction to Line Plots ####
+# What are line plots?
+# two types of relational plots: scatter plots and line plots
+# Scatter plot - each plot point is an independent observation
+# Line plot - each plot point represents the same thing typically tracked over time
+# common example could be tracking the value of a company stock over time
+# we'll be using air pollution data for this exercise
+# collection stations across a city that collects air nitrogen dioxide samples
+# one data point per x-value
+
+# Scatterplot
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.relplot(x='hour', y='NO_2_mean', data=air_df_mean, kind='scatter')
+plt.show()
+
+# Line Plot
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.relplot(x='hour', y='NO_2_mean', data=air_df_mean, kind='line')
+plt.show()
+
+# Subgroups by location
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.relplot(x='hour', y='NO_2_mean', data=air_df_mean, kind='line', style='location', hue='location')
+plt.show()
+
+# Adding by markers
+# this displays a marker for each data point
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.relplot(x='hour', y='NO_2_mean', data=air_df_mean, kind='line', style='location', hue='location', markers=True)
+plt.show()
+
+# Turning off line style
+# if you don't want to the line styles to vary by subgroup, set the dashes parameter to False
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.relplot(x='hour', y='NO_2_mean', data=air_df_mean, kind='line', style='location', hue='location', markers=True, dashes=False)
+plt.show()
+
+# Multiple observations per x-value
+# line plots can also be used when you have more than one obs per x-value
+# the dataset in this exercise has a row for each station that is taking a measurement every hour
+# Scatterplot
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.relplot(x='hour', y='NO_2_mean', data=air_df, kind='scatter')
+plt.show()
+
+# Line plot
+# if a line plot is given multiple observations per x-value, it will aggregate them into a single summary measure
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.relplot(x='hour', y='NO_2', data=air_df, kind='line')
+plt.show()
+
+# Replacing confidence interval with standard deviation
+# Seaborn will automatically calculate a confidence interval and display with a shaded region on the graph
+# assuming the data set is a random sample
+# there is a 95% CI (95% confident that the mean is within this interval
+# indicates uncertainty in our estimate
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.relplot(x='hour', y='NO_2', data=air_df, kind='line', errorbar='sd')
+plt.show()
