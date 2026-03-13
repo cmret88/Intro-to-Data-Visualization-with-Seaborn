@@ -397,3 +397,58 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 sns.relplot(x='hour', y='NO_2', data=air_df, kind='line', errorbar='sd')
 plt.show()
+
+#### Count plots and bar plots ####
+# Categorical plots: count plots and bar plots
+# involve a categorical variable
+# comparisons between groups
+
+# catplot()
+# used to create categorical plots
+# same advantages of relplot()
+# easily create subplots with col= and row=
+
+# countplot() vs. catplot()
+# countplot()
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.countplot(x='how_masculine', data=masculinity_data)
+plt.show()
+
+# catplot()
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.catplot(x='how_masculine', data=masculinity_data, kind='count')
+plt.show()
+
+# changing the order
+import matplotlib.pyplot as plt
+import seaborn as sns
+category_order=['No answer', 'Not at all', 'Not very', 'Somewhat', 'Very']
+sns.catplot(x='how_masculine', data=masculinity_data, kind='count', order=category_order)
+plt.show()
+
+# Bar plots
+# display means of quantitative variable per category
+# lines shows 95% CI for the mean
+# shows uncertainty about our estimate
+# assumes our data is a random sample
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.catplot(x='day', y='total_bill', data=tips, kind='bar')
+plt.show()
+
+# turning off CIs
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.catplot(x='day', y='total_bill', data=tips, kind='bar', errorbar=None)
+plt.show()
+
+# changing the orientation
+# switch the x and y parameters
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.catplot(x='total_bill', y='day', data=tips, kind='bar')
+plt.show()
+
+
