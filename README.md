@@ -481,3 +481,53 @@ sns.catplot(x="study_time", y="G3",
 
 # Show plot
 plt.show()
+
+#### Creating a box plot ####
+# shows a distribution of quantitative data
+# see median, spread, skewness and outliers
+# facilitates comparisons between groups
+
+# how to create a box plot
+import matplotlib.pyplot as plt
+import seaborn as sns
+g = sns.catplot(x='time',
+                y='total_bill',
+                data=tips,
+                kind='box')
+plt.show()
+
+# change the order of categories
+import matplotlib.pyplot as plt
+import seaborn as sns
+g = sns.catplot(x='time',
+                y='total_bill',
+                data=tips,
+                kind='box',
+                order=['Dinner', 'Lunch'])
+plt.show()
+
+# Omitting the outliers
+import matplotlib.pyplot as plt
+import seaborn as sns
+g = sns.catplot(x='time',
+                y='total_bill',
+                data=tips,
+                kind='box',
+                showfliers=False)
+plt.show()
+
+# Changing the whiskers using 'whis'
+# by default, the whiskers extend to 1.5* the IQR (the 25th to 75th percentile of a distribution of data)
+# make them extend to 2.0*IQR: whis=2.0
+# show the 5th and 95th percentiles: whis=[5, 95]
+# show min and max values: whis=[0, 100]
+import matplotlib.pyplot as plt
+import seaborn as sns
+g = sns.catplot(x='time',
+                y='total_bill',
+                data=tips,
+                kind='box',
+                whis=[0, 100])
+plt.show()
+
+# NOTE THAT THERE ARE NOT OUTLIERS B/C THE BOX AND WHISKERS COVER THE ENTIRE RANGE OF DATA
