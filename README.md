@@ -531,3 +531,68 @@ g = sns.catplot(x='time',
 plt.show()
 
 # NOTE THAT THERE ARE NOT OUTLIERS B/C THE BOX AND WHISKERS COVER THE ENTIRE RANGE OF DATA
+
+#### Point Plots ####
+# point show mean of quantitative variable
+# vertical line show 95% CI for mean estimates
+# point plots vs. line plots
+# both show mean of quantitative variable
+# 95% CI for the mean
+# differences - line plot has quantitative variable (usually time) on x-axis
+# point plot has categorical variable on x-axis
+# when should we use one over the other?
+
+# Creating a point plot
+# this is a categorical plot, so we use catplot and kind=point
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.catplot(x='age',
+            y='masculinity_important',
+            data=masculinity_data,
+            hue='feel_masculine',
+            kind='point')
+plt.show()
+
+# Disconnecting the points
+# sometimes we may want to remove the lines connecting each point b/c we wish to compare only within a category group and not between them
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.catplot(x='age',
+            y='masculinity_important',
+            data=masculinity_data,
+            hue='feel_masculine',
+            kind='point',
+            linestyle='none')
+plt.show()
+
+# Displaying the median
+# median is more robust to outliers, so if your dataset has a lot of outliers, the median may be a better stat to use
+import matplotlib.pyplot as plt
+import seaborn as sns
+from numpy import median
+sns.catplot(x='smoker',
+            y='total_bill',
+            data=tips,
+            kind='point',
+            estimator=median)
+plt.show()
+
+# Customizing the CI
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.catplot(x='smoker',
+            y='total_bill',
+            data=tips,
+            kind='point',
+            capsize=0.2)
+plt.show()
+
+# Turning off CIs
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.catplot(x='smoker',
+            y='total_bill',
+            data=tips,
+            kind='point',
+            errorbar=None)
+plt.show()
