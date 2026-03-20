@@ -596,3 +596,102 @@ sns.catplot(x='smoker',
             kind='point',
             errorbar=None)
 plt.show()
+
+#### Changing Plot Style & Color ####
+# Why customize?
+# Reasons to change style:
+# personal preference, improve readability, direct audience to key takeaway
+
+# Changing the figure style
+# figure 'style' includes background and axes
+# preset options: 'white', 'dark', 'whitegrid, 'darkgrid', 'ticks'
+sns.set_style()
+
+# Default figure style ('white')
+sns.catplot(x='age',
+            y='masculinity_important',
+            data=masculinity_data,
+            hue='feel_masculine',
+            kind='point')
+plt.show()
+
+# Other styles
+sns.set_style('ticks')
+sns.catplot(x='age',
+            y='masculinity_important',
+            data=masculinity_data,
+            hue='feel_masculine',
+            kind='point')
+plt.show()
+
+sns.set_style('darkgrid')
+sns.catplot(x='age',
+            y='masculinity_important',
+            data=masculinity_data,
+            hue='feel_masculine',
+            kind='point')
+plt.show()
+
+sns.set_style('whitegrid')
+sns.catplot(x='age',
+            y='masculinity_important',
+            data=masculinity_data,
+            hue='feel_masculine',
+            kind='point')
+plt.show()
+
+# Changing the palette
+# figure 'palette' changes the color of the main elements of the plot
+# use preset palettes or create a custom palette
+sns.set_palette()
+
+# Example (default palette)
+category_order = ['No answer',
+                  'Not at all',
+                  'Not very',
+                  'Somewhat',
+                  'Very']
+sns.catplot(x='how_masculine',
+            data=masculinity_data,
+            kind='count',
+            order=category_order)
+plt.show()
+
+# Example (diverging palette)
+sns.set_palette('RdBu')
+category_order = ['No answer',
+                  'Not at all',
+                  'Not very',
+                  'Somewhat',
+                  'Very']
+sns.catplot(x='how_masculine',
+            data=masculinity_data,
+            kind='count',
+            order=category_order)
+plt.show()
+
+# Custom palettes
+custom_palette = ['red','green','orange','blue','yellow','purple']
+sns.set_palette(custom_palette)
+
+# Changing the scale
+# figure 'context' changes the scale of the plot elements and labels
+sns.set_context()
+# smallest to largest: 'paper','notebook','talk','poster'
+
+# Default context: 'paper'
+sns.catplot(x='age',
+            y='masculinity_important',
+            data=masculinity_data,
+            hue='feel_masculine',
+            kind='point')
+plt.show()
+
+# Larger context:'talk'
+sns.set_context('talk')
+sns.catplot(x='age',
+            y='masculinity_important',
+            data=masculinity_data,
+            hue='feel_masculine',
+            kind='point')
+plt.show()
