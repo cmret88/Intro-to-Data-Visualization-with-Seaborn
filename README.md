@@ -695,3 +695,36 @@ sns.catplot(x='age',
             hue='feel_masculine',
             kind='point')
 plt.show()
+
+#### Adding titles and labels: Part 1 ####
+# Creating informative visualizations
+# FacetGrid vs. AxesSubplot objects
+# seaborn plots creates these two different types of objects ^
+g=sns.scatterplot(x='height',y='weight', data=df)
+type(g) # returns object type
+
+# a FacetGrid consists of one or more AxesSubplots, which is how it supports subplots
+# replot() and catplot() both support making subplots
+# scatterplot() and countplot() only create a single plot
+
+# Adding a title to FacetGrid
+g=sns.catplot(x='Region',
+              y='Birthrate',
+              data=gdp_data,
+              kind='box')
+g.figure.suptitle('New Title')
+plt.show()
+
+# Adjusting the height of title in FacetGrid
+g=sns.catplot(x='Region',
+              y='Birthrate',
+              data=gdp_data,
+              kind='box')
+g.figure.suptitle('New Title', y=1.03)
+plt.show()
+
+
+
+
+
+
