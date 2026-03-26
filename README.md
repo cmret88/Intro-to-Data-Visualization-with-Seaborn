@@ -841,3 +841,33 @@ g.set(xlabel='new x-axis label',
       ylabel='new y-axis label')
 # rotate x-tick labels
 plt.xticks(rotation=90)
+
+# Set palette to "Blues"
+sns.set_palette('Blues')
+
+# Adjust to add subgroups based on "Interested in Pets"
+g = sns.catplot(x="Gender",
+                y="Age", data=survey_data, 
+                kind="box", hue='Interested in Pets')
+
+# Set title to "Age of Those Interested in Pets vs. Not"
+g.figure.suptitle('Age of Those Interested in Pets vs. Not')
+
+# Show plot
+plt.show()
+
+# Set the figure style to "dark"
+sns.set_style('dark')
+
+# Adjust to add subplots per gender
+g = sns.catplot(x="Village - town", y="Likes Techno", 
+                data=survey_data, kind="bar",
+                col='Gender')
+
+# Add title and axis labels
+g.figure.suptitle("Percentage of Young People Who Like Techno", y=1.02)
+g.set(xlabel="Location of Residence", 
+       ylabel="% Who Like Techno")
+
+# Show plot
+plt.show()
