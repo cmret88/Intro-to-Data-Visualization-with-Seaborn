@@ -800,3 +800,44 @@ g.set(xlabel='Car Model Year',
 plt.show()
 
 #### Putting it all together ####
+# Getting Started - Import libraries
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Choose what type of plot you want to create
+# Relational Plots
+# shows the relationship between two quantitative variables
+# examples: scatter plots, line plots
+sns.relplot(x='x_variable_name',
+            y='y_variable_name',
+            data=pandas_df,
+            kind='scatter')
+
+# Categorical Plots
+# shows the distribution of a quantative variable within categories defined by a categorical variable
+# examples: bar plots, count plots, box plots, point plots
+sns.catplot(x='x_variable_name',
+            y='y_variable_name',
+            data=pandas_df,
+            kind='bar')
+
+# Adding a third variable (hue)
+# Setting hue will create subgroups that are displayed as different colors on a single plot
+# Setting row and/or col in replot() or catplot() will create subgroups that are displayed on separated subplots
+
+# Customization
+# change the background: sns.set_style()
+# change the main element colors: sns.set_palette()
+# change the scale: sns.set_context()            
+
+# Adding a title
+# every plot should be given an informative title and axis labels
+# FacetGrid - relplot(), catplot() - g.figure.suptitle()
+# AxesSubplot - scatterplot(), countplot() - g.set_title()
+
+# Final touches
+# add x- and y-axis labels
+g.set(xlabel='new x-axis label',
+      ylabel='new y-axis label')
+# rotate x-tick labels
+plt.xticks(rotation=90)
