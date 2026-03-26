@@ -723,8 +723,80 @@ g=sns.catplot(x='Region',
 g.figure.suptitle('New Title', y=1.03)
 plt.show()
 
+# Create scatter plot
+g = sns.relplot(x="weight", 
+                y="horsepower", 
+                data=mpg,
+                kind="scatter")
 
+# Identify plot type
+type_of_g = type(g)
 
+# Print type
+print(type_of_g)
 
+# Create scatter plot
+g = sns.relplot(x="weight", 
+                y="horsepower", 
+                data=mpg,
+                kind="scatter")
 
+# Add a title "Car Weight vs. Horsepower"
+g.figure.suptitle('Car Weight vs. Horsepower')
 
+# Show plot
+plt.show()
+
+#### Adding titles and labels: Part 2 ####
+# Adding a title to AxesSubplot
+# AxesSubplot
+g=sns.boxplot(x='Region',
+              y='Birthrate',
+              data=gdp_data)
+
+g.set_title('New Title',
+            y=1.03)
+
+# Title for subplots
+g=sns.boxplot(x='Region',
+              y='Birthrate',
+              data=gdp_data,
+              kind='box',
+              col='Group')
+g.figure.suptitle('New Title',
+                  y=1.03)
+g.set_titles('This is {col_name}')
+
+# Adding axis labels
+g=sns.catplot(x='Region',
+              y='Birthrate',
+              data=gdp_data,
+              kind='box')
+g.set(xlabel='New X Label',
+      ylabel='New Y Label')
+plt.show()
+
+# Rotating x-axis tick labels
+g=sns.catplot(x='Region',
+              y='Birthrate',
+              data=gdp_data,
+              kind='box')
+plt.xticks(rotation=90)
+plt.show()
+
+# Create line plot
+g = sns.lineplot(x="model_year", y="mpg_mean", 
+                 data=mpg_mean,
+                 hue="origin")
+
+# Add a title "Average MPG Over Time"
+g.set_title("Average MPG Over Time")
+
+# Add x-axis and y-axis labels
+g.set(xlabel='Car Model Year',
+      ylabel='Average MPG')
+
+# Show plot
+plt.show()
+
+#### Putting it all together ####
